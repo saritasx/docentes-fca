@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maestros que inspiran - FCA UNA</title>
+  <meta name="description" content="Proyecto de extensión: página web para reconocer y difundir la labor docente de la FCA-UNA." />
+  <meta name="author" content="Equipo de Extensión FCA-UNA" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #ffffff;          /* fondo blanco */
+      --panel: #09874b;       /* verde FCA */
+      --card: #ffffff;        /* tarjetas blancas */
+      --text: #010101;        /* texto negro */
+      --muted: #4b5563;       /* gris medio */
+      --primary: #09874b;     /* verde FCA */
+      --accent: #fe6341;      /* naranja FCA */
+      --radius: 16px;
+      --shadow: 0 8px 20px rgba(0,0,0,.1);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--panel);
+      color: #ffffff;
+      padding: 10px 0;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand strong { font-size: 18px; color: #ffffff; }
+    .brand span.logo { background: #ffffff; color: var(--panel); font-weight: 900; border-radius: 10px; width: 36px; height: 36px; display: grid; place-items: center; }
+    nav ul { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }
+    nav a { color: #ffffff; font-weight: 600; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+
+    .hero { text-align: center; padding: 60px 20px; }
+    .hero h1 { color: var(--text); font-size: 42px; }
+    .hero p { color: var(--muted); max-width: 700px; margin: 10px auto; }
+    .cta { margin-top: 20px; }
+
+    .btn {
+      border: none; cursor: pointer; padding: 12px 20px; border-radius: 999px; font-weight: 700;
+      background: var(--accent); color: #ffffff; margin: 5px; box-shadow: var(--shadow);
+    }
+    .btn.secondary { background: var(--primary); }
+
+    section { padding: 50px 20px; }
+    section > h2 { background: var(--primary); color: #ffffff; padding: 10px 16px; border-radius: 10px; display: inline-block; }
+
+    .card { background: var(--card); border: 1px solid #e5e7eb; border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; margin-top: 20px; }
+    .prof { display: flex; align-items: center; gap: 16px; padding: 10px 0; border-bottom: 1px solid #f1f1f1; }
+    .avatar { background: #a1d1bb; color: var(--primary); border-radius: 14px; width: 72px; height: 72px; display: grid; place-items: center; font-weight: 700; font-size: 20px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { border: 1px solid var(--accent); color: var(--accent); padding: 4px 8px; border-radius: 999px; font-size: 12px; }
+
+    input.input { width: 100%; max-width: 420px; padding: 12px; border-radius: 8px; border: 1px solid #ccc; }
+
+    footer { text-align: center; padding: 20px; background: #f8b3a4; color: #010101; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <span class="logo">🎓</span>
+        <strong>Maestros que inspiran - FCA UNA</strong>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#docentes">Docentes</a></li>
+          <li><a href="#historias">Historias</a></li>
+          <li><a href="#recursos">Recursos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio" class="container">
+    <section class="hero">
+      <h1>Reconocemos a quienes forman el futuro</h1>
+      <p>Proyecto de extensión dedicado a visibilizar la vocación, trayectoria y aportes de docentes de la FCA-UNA.</p>
+      <div class="cta">
+        <a class="btn" href="#docentes">Ver docentes</a>
+        <a class="btn secondary" href="#sumate">Sumate al proyecto</a>
+      </div>
+    </section>
+
+    <section id="docentes">
+      <h2>Docentes destacados</h2>
+      <input id="q" class="input" type="search" placeholder="Buscar docentes..." aria-label="Buscar docentes" />
+      <div id="lista" class="card"></div>
+    </section>
+
+    <section id="historias">
+      <h2>Historias que inspiran</h2>
+      <div class="card">
+        <h3>“La paciencia también enseña” — Prof. Marta Benítez</h3>
+        <p>“Cada clase es una oportunidad para formar criterio y carácter. No enseño solo contenidos: enseño hábitos de estudio, respeto y amor por el conocimiento”.</p>
+      </div>
+      <div class="card">
+        <h3>“Aprender haciendo” — Ing. Carlos Ocampos</h3>
+        <p>“Las prácticas en campo conectan teoría y realidad. Cuando un estudiante mide, observa y registra, entiende de verdad”.</p>
+      </div>
+    </section>
+
+    <section id="recursos">
+      <h2>Recursos</h2>
+      <div class="card">
+        <p>Guía para entrevistas, plantillas descargables y ejemplos para reconocer a docentes.</p>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div class="card">
+        <p>Correo institucional: <a href="mailto:saritaseux@gmail.com">saritaseux@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Maestros que inspiran - FCA UNA | Proyecto de extensión
+  </footer>
+
+  <script>
+    const DOCENTES = [
+      { nombre: "Marta Benítez", area: "Lengua", institucion: "FCA-UNA", iniciales: "MB", resumen: "Docente con 20 años de trayectoria. Enfoque en lectura comprensiva y expresión escrita.", tags: ["Lengua", "Comunicación"] },
+      { nombre: "Carlos Ocampos", area: "Ingeniería Ambiental", institucion: "FCA-UNA", iniciales: "CO", resumen: "Ingeniero ambiental. Promueve el aprendizaje basado en proyectos y salidas de campo.", tags: ["Campo", "Proyectos"] },
+      { nombre: "Ana Villalba", area: "Historia", institucion: "FCA-UNA", iniciales: "AV", resumen: "Profesora con metodología participativa y enfoque en fuentes primarias.", tags: ["Historia", "Participación"] }
+    ];
+
+    const elLista = document.querySelector('#lista');
+    const inputQ = document.querySelector('#q');
+
+    function render(lista) {
+      elLista.innerHTML = lista.map(p => `
+        <div class='prof'>
+          <div class='avatar'>${p.iniciales}</div>
+          <div>
+            <strong>${p.nombre}</strong><br>
+            <small>${p.area} · ${p.institucion}</small>
+            <p>${p.resumen}</p>
+            <div class='tags'>${p.tags.map(t => `<span class='tag'>${t}</span>`).join('')}</div>
+          </div>
+        </div>`).join('');
+    }
+
+    function filtrar() {
+      const q = inputQ.value.toLowerCase();
+      const res = DOCENTES.filter(p => [p.nombre, p.area, p.institucion].join(' ').toLowerCase().includes(q));
+      render(res);
+    }
+
+    inputQ.addEventListener('input', filtrar);
+    render(DOCENTES);
+  </script>
+</body>
+</html>
